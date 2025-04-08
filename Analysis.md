@@ -1,4 +1,4 @@
-# League Of Legends Champions Analysis Documentation
+# League Of Legends Champions Analysis
 
 This is the documentation to the Analysis of League Of Legends Champions & their traits. 
 
@@ -104,6 +104,8 @@ plot.yticks(fontsize=20)
 plot.show()
 ```
 
+![Boxplot](images/heatmap.png)
+
 ## 3. Research Questions
 
   1. How well can you predict ```attackdamageperlevel``` using ```attackdamage```?
@@ -190,9 +192,7 @@ plot.show()
 
 The Y-Axis displays the amount of HP gained per level which ranges from 0 to around 130. The X-Axis displays the amount of HP which ranges from 0 to around 600. 
 
-It can be seen that most of the observations are clustered around the upper right area of the plot. The regression line indicates a positive correlation between the amount of HP and the amount of HP gained per level. The regression line is slightly inclined, indicating a positive correlation between the two variables. 
-
-Analyzing Pearson's Correlation Coefficient (r=0.224...), it is safe to say that there is no meaningful correlation between the two variables.
+It can be seen that most of the observations are clustered around the upper right area of the plot. The regression line indicates a positive correlation between the amount of HP and the amount of HP gained per level. The regression line is slightly inclined, indicating a positive correlation between the two variables.
 
 ### 4.4. Cumulative Distribution Function
 
@@ -373,7 +373,7 @@ This Problem presumably exits due to the fact that the Decision Tree is overfitt
 The Random Forest calculates the correlation between the most important features of the Champions and their Winrate. The Feature Importance Plot visualizes the importance of each feature, based on the calculations made by the random Forest:
 
 ```python
-ffeatures = ['attackdamage']
+features = ['attackdamage']
 target = 'attackdamageperlevel'
 
 champions = champions.dropna(subset=features + [target])
@@ -455,9 +455,9 @@ plot.xlabel("Relative Importance")
 plot.show()
 ```
 
-![Feature Importance Plot](images/scatterplot.png)
+![Feature Importance Plot](images/importances.png)
 
-It can be seen the most important feature is ```popularity```, rather than ```winrate```.
+It can be seen the more important feature is ```popularity```, rather than ```winrate```.
 
 ## 7. Evaluation
 
@@ -467,7 +467,7 @@ The aforementioned regressions, decision trees and random forests have been calc
 |--------------------|-------------------|----------------------------------|-----------------------------|---------------------|
 | Regression 1      | 1                 | 0.1476228551800477              | 0.21927787191177023         | Very Bad            |
 | Regression 2      | 2                 | 0.24931904093175195             | 0.0032800134216433487       | Bad                 |
-| Decision Tree 1   | 1                 | 0.9373363137833869              | 0.323292309352005           | Good                |
-| Decision Tree 2   | 2                 | 0.5585842790318705              | 0.0016353170901722662       | Very Good           |
-| Random Forest 1   | 1                 | 0.8469561365943215              | 0.7895785744480707          | Good                |
-| Random Forest 2   | 2                 | 0.7820364760910814              | 0.0008074915748371392       | Very Good           |
+| Decision Tree 1   | 1                 | 0.9373363137833869              | 0.323292309352005           | Very Good           |
+| Decision Tree 2   | 2                 | 0.5585842790318705              | 0.0016353170901722662       | Good                |
+| Random Forest 1   | 1                 | 0.8469561365943215              | 0.7895785744480707          | Very Good           |
+| Random Forest 2   | 2                 | 0.7820364760910814              | 0.0008074915748371392       | Good                |
